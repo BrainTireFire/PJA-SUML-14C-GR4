@@ -1,8 +1,15 @@
+"""
+Ten moduł ocenia model.
+"""
+
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from typing import Any
 
 def evaluate_model(model: DecisionTreeClassifier, X_test: pd.DataFrame) -> Any:
+    """
+    Ten moduł ocenia model.
+    """
     try:
         predictions = model.predict(X_test)
         return predictions

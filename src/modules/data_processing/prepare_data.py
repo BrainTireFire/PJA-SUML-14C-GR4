@@ -1,7 +1,14 @@
+"""
+Ten moduł przygotowuje dane do analizy.
+"""
+
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 
 def prepare_data(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Ten moduł przygotowuje dane do analizy.
+    """
     try:
         label_encoders = {}
         for column in df.select_dtypes(include=['object']).columns:

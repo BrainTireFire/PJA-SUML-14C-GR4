@@ -1,7 +1,13 @@
-import os
+"""
+Ten moduł pobiera dataset.
+"""
+
 import opendatasets as od
  
 def download_dataset(url: str, destination: str) -> None:
+    """
+    Ten moduł pobiera dataset.
+    """
     try:
         od.download(url, destination)
         print('Dataset downloaded and extracted successfully')

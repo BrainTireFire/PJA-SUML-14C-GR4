@@ -1,13 +1,16 @@
+"""
+Ten moduł trenuje model.
+"""
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report, accuracy_score, recall_score, precision_score
 from sklearn.tree import DecisionTreeClassifier
-from typing import Tuple
 
-def training_model(X_train: pd.DataFrame, y_train: pd.Series) -> DecisionTreeClassifier:
+def training_model(x_train: pd.DataFrame, y_train: pd.Series) -> DecisionTreeClassifier:
+    """
+    Ten moduł trenuje model.
+    """
     try:        
         model = DecisionTreeClassifier()
-        model.fit(X_train, y_train)
+        model.fit(x_train, y_train)
 
         return model
     except Exception as e:
