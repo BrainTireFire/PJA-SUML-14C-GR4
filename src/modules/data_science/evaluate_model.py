@@ -8,7 +8,7 @@ from typing import Any
 
 def evaluate_model(model: DecisionTreeClassifier, X_test: pd.DataFrame) -> Any:
     """
-    Ten moduł ocenia model.
+    Ta funkcja ocenia model.
     """
     try:
         predictions = model.predict(X_test)

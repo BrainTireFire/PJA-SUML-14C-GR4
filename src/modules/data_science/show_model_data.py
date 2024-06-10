@@ -10,7 +10,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 def show_model_data(y_test: pd.Series, predictions: Any) -> None:
     """
-    Ten moduł pokazuje dane modelu.
+    Ta funkcja pokazuje dane modelu.
     """
     try:
         name = "DecisionTreeClassifier"

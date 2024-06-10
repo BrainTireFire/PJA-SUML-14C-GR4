@@ -7,7 +7,7 @@ from sklearn.preprocessing import LabelEncoder
 
 def prepare_data(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Ten moduł przygotowuje dane do analizy.
+    Ta funkcja przygotowuje dane do analizy.
     """
     try:
         label_encoders = {}

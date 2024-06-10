@@ -6,7 +6,7 @@ import opendatasets as od
  
 def download_dataset(url: str, destination: str) -> None:
     """
-    Ten moduł pobiera dataset.
+    Ta funkcja pobiera dataset.
     """
     try:
         od.download(url, destination)
