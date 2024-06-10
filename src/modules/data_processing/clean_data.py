@@ -1,6 +1,13 @@
+"""
+Ten moduł czyści dane.
+"""
+
 import pandas as pd
 
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Ten moduł czyści dane.
+    """
     try:
         df.drop_duplicates(inplace=True)
         df.duplicated().sum()

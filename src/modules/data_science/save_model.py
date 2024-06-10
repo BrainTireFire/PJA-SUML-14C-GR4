@@ -1,8 +1,15 @@
+"""
+Ten moduł zapisuje model.
+"""
+
 import os
 from joblib import dump
 from sklearn.tree import DecisionTreeClassifier
 
 def save_model(model: DecisionTreeClassifier, output_dir: str) -> None:
+    """
+    Ten moduł zapisuje model.
+    """
     try:
         if not isinstance(model, DecisionTreeClassifier):
             raise ValueError("The model is not a DecisionTreeClassifier.")

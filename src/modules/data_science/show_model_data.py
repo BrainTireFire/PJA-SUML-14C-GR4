@@ -1,11 +1,17 @@
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.metrics import classification_report, accuracy_score
-from sklearn.tree import DecisionTreeClassifier
+"""
+Ten moduł pokazuje dane modelu.
+"""
 from typing import Any
 
-def show_model_data(model: DecisionTreeClassifier, y_test: pd.Series, predictions: Any) -> None:
+import pandas as pd
+from sklearn.metrics import classification_report, accuracy_score
+from sklearn.tree import DecisionTreeClassifier
+
+
+def show_model_data(y_test: pd.Series, predictions: Any) -> None:
+    """
+    Ten moduł pokazuje dane modelu.
+    """
     try:
         name = "DecisionTreeClassifier"
         accuracy = accuracy_score(y_test, predictions)
@@ -19,10 +25,3 @@ def show_model_data(model: DecisionTreeClassifier, y_test: pd.Series, prediction
     except Exception as e:
         print(f'An error occurred while showing model data: {str(e)}')
 
-# def plot_data_distribution(data: pd.Series) -> None:
-#     plt.figure(figsize=(8, 6))
-#     sns.histplot(data, bins=30, kde=True)
-#     plt.title('Data Distribution')
-#     plt.xlabel('Values')
-#     plt.ylabel('Frequency')
-#     plt.show()
