@@ -1,14 +1,18 @@
-import streamlit as st
+"""
+Ten moduł uruchamia aplikację streamlit.
+"""
+
+from datetime import datetime
 import joblib
 import numpy as np
-from datetime import datetime
-# from sklearn import StandardScaler
+
+import streamlit as st
 
 startTime = datetime.now()
 
 # Data
-filename = "model.joblib"
-model = joblib.load(filename)
+FILENAME = "model.joblib"
+model = joblib.load(FILENAME)
 
 
 sex_d = {0: "Female", 1: "Male"}
@@ -36,6 +40,9 @@ obesity_level_mapping = {
 }
 
 def main():
+    """
+    Ta funkcja uruchamia aplikację streamlit.
+    """
     st.set_page_config(page_title="Are you overweight?")
     overview = st.container()
     left, right = st.columns(2)
@@ -48,25 +55,106 @@ def main():
         st.title("Are you overweight?")
 
     with left:
-        sex_radio = st.radio("What is your gender?", list(sex_d.keys()), format_func=lambda x: sex_d[x])
-        smoke_radio = st.radio("Do you smoke?", list(smoke_d.keys()), format_func=lambda x: smoke_d[x])
-        favc_radio = st.radio("Do you eat high caloric food frequently?", list(favc_d.keys()), format_func=lambda x: favc_d[x])
-        scc_radio = st.radio("Do you monitor the calories you eat daily?", list(scc_d.keys()), format_func=lambda x: scc_d[x])
-        family_history_with_overweight_radio = st.radio("Has a family member suffered or suffers from overweight?", list(family_history_with_overweight_d.keys()), format_func=lambda x: family_history_with_overweight_d[x])
-        caec_radio = st.radio("Do you eat any food between meals?", list(caec_d.keys()), format_func=lambda x: caec_d[x])
-        mtrans_radio = st.radio("Which transportation do you usually use?", list(mtrans_d.keys()), format_func=lambda x: mtrans_d[x])
-        faf_radio = st.radio("How often do you have physical activity?", list(faf_d.keys()), format_func=lambda x: faf_d[x])
-        
+        sex_radio = st.radio(
+            "What is your gender?",
+            list(sex_d.keys()),
+            format_func=lambda x: sex_d[x]
+        )
+
+        smoke_radio = st.radio(
+            "Do you smoke?",
+            list(smoke_d.keys()),
+            format_func=lambda x: smoke_d[x]
+        )
+
+        favc_radio = st.radio(
+            "Do you eat high caloric food frequently?",
+            list(favc_d.keys()),
+            format_func=lambda x: favc_d[x]
+        )
+
+        scc_radio = st.radio(
+            "Do you monitor the calories you eat daily?",
+            list(scc_d.keys()),
+            format_func=lambda x: scc_d[x]
+        )
+
+        family_history_with_overweight_radio = st.radio(
+            "Has a family member suffered or suffers from overweight?",
+            list(family_history_with_overweight_d.keys()),
+            format_func=lambda x: family_history_with_overweight_d[x]
+        )
+
+        caec_radio = st.radio(
+            "Do you eat any food between meals?",
+            list(caec_d.keys()),
+            format_func=lambda x: caec_d[x]
+        )
+
+        mtrans_radio = st.radio(
+            "Which transportation do you usually use?",
+            list(mtrans_d.keys()),
+            format_func=lambda x: mtrans_d[x]
+        )
+
+        faf_radio = st.radio(
+            "How often do you have physical activity?",
+            list(faf_d.keys()),
+            format_func=lambda x: faf_d[x]
+        )
+
     with right:
-        age_slider = st.slider("What is your age?", value=50, min_value=1, max_value=100)
-        height_slider = st.slider("What is your height? [cm]", min_value=100, max_value=250, value=172)
-        weight_slider = st.slider("What is your weight? [kg]", min_value=20, max_value=300, value=60)
-        fcvc_radio = st.radio("Do you usually eat vegetables in your meals?", list(fcvc_d.keys()), format_func=lambda x: fcvc_d[x])
-        ch2O_radio = st.radio("How much water do you drink daily?", list(ch2O_d.keys()), format_func=lambda x: ch2O_d[x])
-        ncp_radio = st.radio("How many main meals do you have daily?", list(ncp_d.keys()), format_func=lambda x: ncp_d[x])
-        tue_radio = st.radio("How much time do you use technological devices?", list(tue_d.keys()), format_func=lambda x: tue_d[x])
-        calc_radio = st.radio("How often do you drink alcohol?", list(calc_d.keys()), format_func=lambda x: calc_d[x])
-       
+        age_slider = st.slider(
+            "What is your age?",
+            value=50,
+            min_value=1,
+            max_value=100
+        )
+
+        height_slider = st.slider(
+            "What is your height? [cm]",
+            min_value=100,
+            max_value=250,
+            value=172
+        )
+
+        weight_slider = st.slider(
+            "What is your weight? [kg]",
+            min_value=20,
+            max_value=300,
+            value=60
+        )
+
+        fcvc_radio = st.radio(
+            "Do you usually eat vegetables in your meals?",
+            list(fcvc_d.keys()),
+            format_func=lambda x: fcvc_d[x]
+        )
+
+        ch2O_radio = st.radio(
+            "How much water do you drink daily?",
+            list(ch2O_d.keys()),
+            format_func=lambda x: ch2O_d[x]
+        )
+
+        ncp_radio = st.radio(
+            "How many main meals do you have daily?",
+            list(ncp_d.keys()),
+            format_func=lambda x: ncp_d[x]
+        )
+
+        tue_radio = st.radio(
+            "How much time do you use technological devices?",
+            list(tue_d.keys()),
+            format_func=lambda x: tue_d[x]
+        )
+
+        calc_radio = st.radio(
+            "How often do you drink alcohol?",
+            list(calc_d.keys()),
+            format_func=lambda x: calc_d[x]
+        )
+
     if st.button("Predict"):
         data = [
             age_slider,
@@ -90,8 +178,8 @@ def main():
 
         data = np.array(data).reshape(1, -1)
 
-        print(data)
-        
+        # print(data)
+
         # scaler = StandardScaler()
 
         prediction_result = model.predict(data)
@@ -99,11 +187,11 @@ def main():
 
         predicted_label = obesity_level_mapping[prediction_result[0]]
 
-        print("prediction_result ", prediction_result)
+        # print("prediction_result ", prediction_result)
 
         with prediction:
-            st.header("Prediction: {0}".format(predicted_label))
-            st.subheader("Confidence: {0:.2f}%".format(np.max(prediction_proba) * 100))
+            st.header(f"Prediction: {0}".format(predicted_label))
+            st.subheader(f"Confidence: {0:.2f}%".format(np.max(prediction_proba) * 100))
 
 if __name__ == "__main__":
     main()

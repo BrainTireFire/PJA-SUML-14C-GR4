@@ -1,13 +1,22 @@
+"""
+Ten moduł tworzy API.
+"""
+
 import uvicorn
 import pandas as pd
 import numpy as np
-
-from libs.load_model import load_model
+from pydantic import BaseModel
 from fastapi import FastAPI
 from fastapi.encoders import jsonable_encoder
-from pydantic import BaseModel
+
+
+from libs.load_model import load_model
+
 
 class RequestJSON(BaseModel):
+    """
+    Ta klasa definiuje dane wejściowe.
+    """
     age: int
     sex: int
     height: float
@@ -30,10 +39,14 @@ app = FastAPI()
 
 @app.post('/predict', tags=["predict"])
 def predict(request: RequestJSON):
+    """
+    Ta funkcja przewiduje poziom otyłości.
+    """
+
     df = pd.DataFrame(request.__dict__, index=[0])
     data = np.array(df.values).reshape(1, -1)
 
-    print(data)
+    # print(data)
 
     model = load_model()
     prediction_result = model.predict(data)
@@ -49,12 +62,15 @@ def predict(request: RequestJSON):
         6: "Overweight_Level_II"
     }
 
-    print(prediction_result)
+    # print(prediction_result)
 
     predicted_label = obesity_level_mapping[prediction_result[0]]
 
-
-    return jsonable_encoder({'prediction': predicted_label, 'confidence': np.max(prediction_proba) * 100})
+    return jsonable_encoder(
+        {
+            'prediction': predicted_label,
+            'confidence': np.max(prediction_proba) * 100
+        })
 
 
 if __name__ == "__main__":
