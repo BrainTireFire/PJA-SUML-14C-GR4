@@ -10,3 +10,12 @@
 1. To create, train, prepare, and save the model, run the script main.py.
 2. main.py executes sub-modules located in the "modules" folder.
 3. Sub-modules are responsible for creating, evaluating the model, downloading the dataset, etc.
+
+
+### API
+#### Docker
+START: docker run -d -p 8000:8000 --name pja-suml-14c-gr4 -e PORT=8000 pja-suml-14c-gr4
+BUILD: docker build -t pja-suml-14c-gr4 .
+
+#### Streamlit
+START: streamlit run app.py
