@@ -1,5 +1,8 @@
 # PJA-SUML-14C-GR4
 
+## Description
+AmIPhat is a web application designed to predict obesity levels based on user-provided data. The application ensures compatibility across all current devices by being accessible through the latest web browsers.
+
 ## Getting started
 
 ### Creating a Miniconda Environment
