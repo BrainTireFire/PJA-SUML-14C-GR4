@@ -185,13 +185,16 @@ def main():
         prediction_result = model.predict(data)
         prediction_proba = model.predict_proba(data)
 
+        print(prediction_result)
+        print(obesity_level_mapping)
+        print(obesity_level_mapping[prediction_result[0]])
         predicted_label = obesity_level_mapping[prediction_result[0]]
 
         # print("prediction_result ", prediction_result)
 
         with prediction:
-            st.header(f"Prediction: {0}".format(predicted_label))
-            st.subheader(f"Confidence: {0:.2f}%".format(np.max(prediction_proba) * 100))
+            st.header(f"Prediction: {predicted_label}")
+            st.subheader(f"Confidence: {np.max(prediction_proba) * 100:.2f}%")
 
 if __name__ == "__main__":
     main()
