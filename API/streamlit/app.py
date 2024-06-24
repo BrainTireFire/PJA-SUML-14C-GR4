@@ -45,11 +45,11 @@ def main():
     overview = st.container()
     left, right = st.columns(2)
 
-    st.image(
-        "https://previews.123rf.com/images/yotrak/yotrak1308/yotrak130800155/21750071-cz%C5%82owiek-stoj%C4%85cy-na-skale-wagi-z-bosej-stopy.jpg")
 
     with overview:
         st.title("Are you overweight?")
+        st.image(
+            "https://previews.123rf.com/images/yotrak/yotrak1308/yotrak130800155/21750071-cz%C5%82owiek-stoj%C4%85cy-na-skale-wagi-z-bosej-stopy.jpg")
 
     with left:
         sex_radio = st.radio(
@@ -152,7 +152,6 @@ def main():
             format_func=lambda x: calc_d[x]
         )
 
-    prediction = st.container()
     if st.button("Predict"):
         data = [
             age_slider,
@@ -190,7 +189,7 @@ def main():
 
         # print("prediction_result ", prediction_result)
 
-        with prediction:
+        with st.container():
             st.header(f"Prediction: {predicted_label}")
             st.subheader(f"Confidence: {np.max(prediction_proba) * 100:.2f}%")
     
