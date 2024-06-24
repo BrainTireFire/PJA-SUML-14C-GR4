@@ -9,7 +9,7 @@ import streamlit as st
 
 
 # Data
-FILENAME = "streamlit/model.joblib"
+FILENAME = "API/streamlit/model.joblib"
 model = joblib.load(FILENAME)
 
 
