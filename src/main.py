@@ -48,7 +48,7 @@ def main():
         predictions = evaluate_model.evaluate_model(model, x_test)
         logger.info('Model evaluated successfully')    
 
-        show_model_data.show_model_data(model, y_test, predictions)
+        show_model_data.show_model_data(y_test, predictions)
         logger.info('Model data shown successfully')
 
         output_dir = 'models'
