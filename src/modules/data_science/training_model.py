@@ -8,7 +8,7 @@ def training_model(x_train: pd.DataFrame, y_train: pd.Series) -> DecisionTreeCla
     """
     Ta funkcja trenuje model.
     """
-    try:        
+    try:
         model = DecisionTreeClassifier()
         model.fit(x_train, y_train)
 

@@ -9,7 +9,6 @@ from pydantic import BaseModel
 from fastapi import FastAPI
 from fastapi.encoders import jsonable_encoder
 
-
 from libs.load_model import load_model
 
 
@@ -35,6 +34,9 @@ class RequestJSON(BaseModel):
     mtrans: str
 
 def map_request_to_row(request: RequestJSON):
+    """
+    Ta funkcja mapuje dane wejściowe.
+    """
     # Define the reversed dictionaries
     sex_d_reversed = {'Female': 0, 'Male': 1}
     smoke_d_reversed = {'No': 0, 'Yes': 1}
@@ -70,7 +72,7 @@ def map_request_to_row(request: RequestJSON):
         "mtrans": mtrans_d_reversed[request.mtrans],
         "bmi": request.weight / (request.height ** 2)
     }
-    
+
     return mapped_row
 
 app = FastAPI()

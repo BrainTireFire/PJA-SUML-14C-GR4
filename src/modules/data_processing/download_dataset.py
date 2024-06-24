@@ -3,7 +3,7 @@ Ten moduł pobiera dataset.
 """
 
 import opendatasets as od
- 
+
 def download_dataset(url: str, destination: str) -> None:
     """
     Ta funkcja pobiera dataset.

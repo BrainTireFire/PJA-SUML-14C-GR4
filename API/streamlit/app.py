@@ -192,7 +192,7 @@ def main():
         with st.container():
             st.header(f"Prediction: {predicted_label}")
             st.subheader(f"Confidence: {np.max(prediction_proba) * 100:.2f}%")
-    
+
 
 if __name__ == "__main__":
     main()
