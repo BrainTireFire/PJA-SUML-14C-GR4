@@ -5,8 +5,6 @@ from typing import Any
 
 import pandas as pd
 from sklearn.metrics import classification_report, accuracy_score
-from sklearn.tree import DecisionTreeClassifier
-
 
 def show_model_data(y_test: pd.Series, predictions: Any) -> None:
     """
@@ -24,4 +22,3 @@ def show_model_data(y_test: pd.Series, predictions: Any) -> None:
 
     except Exception as e:
         print(f'An error occurred while showing model data: {str(e)}')
-

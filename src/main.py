@@ -46,7 +46,7 @@ def main():
         logger.info('Model trained successfully')
 
         predictions = evaluate_model.evaluate_model(model, x_test)
-        logger.info('Model evaluated successfully')    
+        logger.info('Model evaluated successfully')
 
         show_model_data.show_model_data(y_test, predictions)
         logger.info('Model data shown successfully')
