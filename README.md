@@ -13,7 +13,7 @@
 
 
 ### API
-#### Docker
+#### Docker (FASTAPI)
 START: docker run -d -p 8000:8000 --name pja-suml-14c-gr4 -e PORT=8000 pja-suml-14c-gr4
 BUILD: docker build -t pja-suml-14c-gr4 .
 
