@@ -2,13 +2,11 @@
 Ten moduł uruchamia aplikację streamlit.
 """
 
-from datetime import datetime
 import joblib
 import numpy as np
 
 import streamlit as st
 
-startTime = datetime.now()
 
 # Data
 FILENAME = "model.joblib"
@@ -46,7 +44,6 @@ def main():
     st.set_page_config(page_title="Are you overweight?")
     overview = st.container()
     left, right = st.columns(2)
-    prediction = st.container()
 
     st.image(
         "https://previews.123rf.com/images/yotrak/yotrak1308/yotrak130800155/21750071-cz%C5%82owiek-stoj%C4%85cy-na-skale-wagi-z-bosej-stopy.jpg")
@@ -155,6 +152,7 @@ def main():
             format_func=lambda x: calc_d[x]
         )
 
+    prediction = st.container()
     if st.button("Predict"):
         data = [
             age_slider,
@@ -195,6 +193,7 @@ def main():
         with prediction:
             st.header(f"Prediction: {predicted_label}")
             st.subheader(f"Confidence: {np.max(prediction_proba) * 100:.2f}%")
+    
 
 if __name__ == "__main__":
     main()
