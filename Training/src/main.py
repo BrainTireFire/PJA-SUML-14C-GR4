@@ -22,12 +22,12 @@ def main():
     Ten moduł jest glownym modułem aplikacji.
     """
     try:
-        dataset_url = 'https://www.kaggle.com/datasets/fatemehmehrparvar/obesity-levels'
-        data_destination = '../dataset'
-        download_dataset.download_dataset(dataset_url, data_destination)
-        logger.info('Dataset downloaded successfully')
+        # dataset_url = 'https://www.kaggle.com/datasets/fatemehmehrparvar/obesity-levels'
+        # data_destination = '../dataset'
+        # download_dataset.download_dataset(dataset_url, data_destination)
+        # logger.info('Dataset downloaded successfully')
 
-        df = pd.read_csv('../dataset/obesity-levels/ObesityDataSet_raw_and_data_sinthetic.csv')
+        df = pd.read_csv('dataset/obesity-levels/ObesityDataSet_raw_and_data_sinthetic.csv')
         logger.info('Dataset loaded successfully')
 
         df_prepared = clean_data.clean_data(df)
