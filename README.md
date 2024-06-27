@@ -24,6 +24,7 @@ AmIPhat is a web application designed to predict obesity levels based on user-pr
 #### Docker
 
 BUILD: docker build -t training-app .
+
 START: docker run -v .:/app/models -v .:/app/dataset/obesity-levels training-app
 
 Replace the "." before the ":" signs in -v tags to specify folders:
@@ -36,6 +37,7 @@ Replace the "." before the ":" signs in -v tags to specify folders:
 #### Docker (FASTAPI)
 
 BUILD: docker build -t fastapi-app .
+
 START: docker run -d -p 8000:8000 --name pja-suml-14c-gr4 -e PORT=8000 -v .:/app/ml_model fastapi-app
 
 #### Streamlit
