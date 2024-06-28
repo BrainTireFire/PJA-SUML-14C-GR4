@@ -49,7 +49,9 @@ def main():
     with overview:
         st.title("Are you overweight?")
         st.image(
-            "https://previews.123rf.com/images/yotrak/yotrak1308/yotrak130800155/21750071-cz%C5%82owiek-stoj%C4%85cy-na-skale-wagi-z-bosej-stopy.jpg")
+            "https://previews.123rf.com/images/yotrak/yotrak1308"
+            "/yotrak130800155/21750071-cz%C5%82owiek-stoj%C4%85c"
+            "y-na-skale-wagi-z-bosej-stopy.jpg")
 
     with left:
         sex_radio = st.radio(
@@ -128,7 +130,7 @@ def main():
             format_func=lambda x: fcvc_d[x]
         )
 
-        ch2O_radio = st.radio(
+        cwater_radio = st.radio(
             "How much water do you drink daily?",
             list(ch2O_d.keys()),
             format_func=lambda x: ch2O_d[x]
@@ -164,7 +166,7 @@ def main():
             ncp_radio,
             scc_radio,
             smoke_radio,
-            ch2O_radio,
+            cwater_radio,
             family_history_with_overweight_radio,
             faf_radio,
             tue_radio,

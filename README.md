@@ -42,4 +42,5 @@ START: docker run -d -p 8000:8000 --name pja-suml-14c-gr4 -e PORT=8000 -v .:/app
 
 #### Streamlit
 
-START: streamlit run app.py
+In root directory run:
+streamlit run .\API\streamlit\app.py
