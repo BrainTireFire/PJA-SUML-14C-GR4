@@ -8,7 +8,7 @@ from sklearn.metrics import classification_report, accuracy_score
 
 def show_model_data(y_test: pd.Series, predictions: Any) -> None:
     """
-    Ta funkcja pokazuje dane modelu.
+    Prints classification report by crossreferencing predicted and actual values of dependent variable.
     """
     try:
         name = "DecisionTreeClassifier"

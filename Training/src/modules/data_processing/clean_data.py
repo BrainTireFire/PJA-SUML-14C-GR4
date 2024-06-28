@@ -6,7 +6,7 @@ import pandas as pd
 
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Ta funkcja czyści dane.
+    Cleans data by removing duplicates.
     """
     try:
         df.drop_duplicates(inplace=True)

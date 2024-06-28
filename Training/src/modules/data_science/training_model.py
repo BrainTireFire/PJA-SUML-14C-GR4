@@ -6,7 +6,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 def training_model(x_train: pd.DataFrame, y_train: pd.Series) -> DecisionTreeClassifier:
     """
-    Ta funkcja trenuje model.
+    Trains a DecisionTreeClassifier model.
     """
     try:
         model = DecisionTreeClassifier()

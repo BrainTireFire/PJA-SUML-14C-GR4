@@ -6,7 +6,7 @@ import pandas as pd
 
 def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Ta funkcja przetwarza dane.
+    Generates an additional feature.
     """
     try:
         df['BMI'] = round(df['Weight'] / (df['Height']) ** 2, 2)

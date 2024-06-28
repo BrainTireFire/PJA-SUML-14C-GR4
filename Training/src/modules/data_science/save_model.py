@@ -8,7 +8,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 def save_model(model: DecisionTreeClassifier, output_dir: str) -> None:
     """
-    Ta funkcja zapisuje model.
+    Saves supplied model to file.
     """
     try:
         if not isinstance(model, DecisionTreeClassifier):

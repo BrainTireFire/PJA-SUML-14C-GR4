@@ -6,7 +6,7 @@ import opendatasets as od
 
 def download_dataset(url: str, destination: str) -> None:
     """
-    Ta funkcja pobiera dataset.
+    Loads dataset from specified URL and saves it in specified folder.
     """
     try:
         od.download(url, destination)

@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 
 def split_data(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
     """
-    Ta funkcja dzieli dane na zestawy treningowe i testowe.
+    Splits data into train and test sets. Each set is also divided into subsets. x subsets contain only independent variables while y subsets contain dependent variable.
     """
     x = df.drop(columns=['NObeyesdad'])
     y = df['NObeyesdad']

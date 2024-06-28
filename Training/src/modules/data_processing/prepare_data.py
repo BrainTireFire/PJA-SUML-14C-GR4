@@ -7,7 +7,7 @@ from sklearn.preprocessing import LabelEncoder
 
 def prepare_data(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Ta funkcja przygotowuje dane do analizy.
+    Replaces categorical data with numbers.
     """
     try:
         label_encoders = {}
