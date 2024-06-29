@@ -13,7 +13,7 @@ AmIPhat is a web application designed to predict obesity levels based on user-pr
 
 ### Running the Main Script main.py
 
-1. To create, train, prepare, and save the model, run the script main.py.
+1. To create, train, prepare, and save the model, run the script main.py while located in Training folder.
 2. main.py executes sub-modules located in the "modules" folder.
 3. Sub-modules are responsible for creating, evaluating the model, downloading the dataset, etc.
 
@@ -23,9 +23,13 @@ AmIPhat is a web application designed to predict obesity levels based on user-pr
 
 #### Docker
 
-BUILD: docker build -t training-app .
+##### BUILD:
 
-START: docker run -v .:/app/models -v .:/app/dataset/obesity-levels training-app
+While located in Training folder run: docker build -t training-app .
+
+##### START:
+
+docker run -v .:/app/models -v .:/app/dataset/obesity-levels training-app
 
 Replace the "." before the ":" signs in -v tags to specify folders:
 
@@ -36,10 +40,17 @@ Replace the "." before the ":" signs in -v tags to specify folders:
 
 #### Docker (FASTAPI)
 
-BUILD: docker build -t fastapi-app .
+##### BUILD:
 
-START: docker run -d -p 8000:8000 --name pja-suml-14c-gr4 -e PORT=8000 -v .:/app/ml_model fastapi-app
+While located in API/fastapi folder run: docker build -t fastapi-app .
+
+##### START:
+
+docker run -d -p 8000:8000 --name pja-suml-14c-gr4 -e PORT=8000 -v .:/app/ml_model fastapi-app
+
+Replace the "." before the ":" sign in -v tag to specify from where to load model.
 
 #### Streamlit
 
-START: streamlit run app.py
+In root directory run:
+streamlit run .\API\streamlit\app.py

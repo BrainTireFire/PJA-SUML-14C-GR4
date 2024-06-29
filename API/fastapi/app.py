@@ -45,11 +45,13 @@ def map_request_to_row(request: RequestJSON):
     family_history_with_overweight_d_reversed = {'No': 0, 'Yes': 1}
     caec_d_reversed = {'Always': 0, 'Frequently': 1, 'No': 2, 'Sometimes': 3}
     calc_d_reversed = {'Always': 0, 'Frequently': 1, 'No': 2, 'Sometimes': 3}
-    mtrans_d_reversed = {'Automobile': 0, 'Bike': 1, 'Motorbike': 2, 'Public_Transportation': 3, 'Walking': 4}
+    mtrans_d_reversed = {'Automobile': 0, 'Bike': 1,
+                            'Motorbike': 2, 'Public_Transportation': 3, 'Walking': 4}
     fcvc_d_reversed = {'Never': 1, 'Sometimes': 2, 'Always': 3}
-    ch2O_d_reversed = {'Less than a liter': 1, 'Between 1 and 2 l': 2, 'More than 2 l': 3}
+    cwater_d_reversed = {'Less than a liter': 1, 'Between 1 and 2 l': 2, 'More than 2 l': 3}
     ncp_d_reversed = {'Between 1 and 2': 1, 'Three': 2, 'More than Three': 3}
-    faf_d_reversed = {'I do not have': 0, '1 or 2 days': 1, '2  or 4 days': 2, '4 or 5 days': 3}
+    faf_d_reversed = {'I do not have': 0, '1 or 2 days': 1, '2  or 4 days': 2,
+                      '4 or 5 days': 3}
     tue_d_reversed = {'0-2 hours': 0, '3-5 hours': 1, 'More than 5 hours': 2}
 
     # Map the input values to their numeric equivalents
@@ -64,8 +66,9 @@ def map_request_to_row(request: RequestJSON):
         "ncp": ncp_d_reversed[request.ncp],
         "scc": scc_d_reversed[request.scc],
         "smoke": smoke_d_reversed[request.smoke],
-        "ch2O": ch2O_d_reversed[request.ch2O],
-        "family_history_with_overweight": family_history_with_overweight_d_reversed[request.family_history_with_overweight],
+        "ch2O": cwater_d_reversed[request.ch2O],
+        "family_history_with_overweight":
+        family_history_with_overweight_d_reversed[request.family_history_with_overweight],
         "faf": faf_d_reversed[request.faf],
         "tue": tue_d_reversed[request.tue],
         "caec": caec_d_reversed[request.caec],
@@ -94,19 +97,19 @@ def predict(request: RequestJSON):
     prediction_result = model.predict(data)
     prediction_proba = model.predict_proba(data)
 
-    obesity_level_mapping = {
-        0: "Insufficient_Weight",
-        1: "Normal_Weight",
-        2: "Obesity_Type_I",
-        3: "Obesity_Type_II",
-        4: "Obesity_Type_III",
+    obesity_level = {
+        6: "Overweight_Level_II",
         5: "Overweight_Level_I",
-        6: "Overweight_Level_II"
+        4: "Obesity_Type_III",
+        3: "Obesity_Type_II",
+        2: "Obesity_Type_I",
+        1: "Normal_Weight",
+        0: "Insufficient_Weight"
     }
 
     # print(prediction_result)
 
-    predicted_label = obesity_level_mapping[prediction_result[0]]
+    predicted_label = obesity_level[prediction_result[0]]
 
     return jsonable_encoder(
         {
